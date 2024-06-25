@@ -1,0 +1,19 @@
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+}
+
+test {
+    testLogging {
+        showStandardStreams = true // 표준 출력 및 오류 스트림을 콘솔에 출력합니다.
+        exceptionFormat = 'full' // 예외 정보를 전체로 출력합니다.
+        events = ['passed', 'failed'] // 특정 이벤트를 출력합니다.
+    }
+}
+
+bootJar {
+    enabled = false
+}
+jar {
+    enabled = true
+}
