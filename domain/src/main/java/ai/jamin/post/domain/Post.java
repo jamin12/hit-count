@@ -26,10 +26,14 @@ public class Post extends MutableBaseEntity {
 	private Long hitCount;
 
 	@Builder
-	public Post(Long id, String content, String title, Long hitCount) {
+	public Post(Long id, String content, String title) {
 		this.id = id;
 		this.content = content;
 		this.title = title;
-		this.hitCount = hitCount;
+		this.hitCount = 0L;
+	}
+
+	public void incrementHitCount(Long hitCount) {
+		this.hitCount += hitCount;
 	}
 }

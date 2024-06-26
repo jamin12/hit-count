@@ -2,3 +2,5 @@ rootProject.name = 'hit-count'
 include 'application'
 include 'submodule'
 include 'domain'
+include 'core'
+
