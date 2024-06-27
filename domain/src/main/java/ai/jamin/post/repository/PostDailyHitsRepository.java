@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import ai.jamin.post.domain.PostDailyHits;
 
-public interface PostDailyHItsRepository extends JpaRepository<PostDailyHits, Long> {
+public interface PostDailyHitsRepository extends JpaRepository<PostDailyHits, Long> {
 	Optional<PostDailyHits> findByPostIdAndDay(Long postId, LocalDate day);
 }

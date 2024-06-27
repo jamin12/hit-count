@@ -6,13 +6,13 @@ import org.springframework.stereotype.Service;
 
 import ai.jamin.post.domain.Post;
 import ai.jamin.post.domain.PostDailyHits;
-import ai.jamin.post.repository.PostDailyHItsRepository;
+import ai.jamin.post.repository.PostDailyHitsRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class PostDailyHItsService {
-	private final PostDailyHItsRepository postDailyHitsRepository;
+public class PostDailyHitsService {
+	private final PostDailyHitsRepository postDailyHitsRepository;
 
 	public PostDailyHits create(PostDailyHits postDailyHits) {
 		return postDailyHitsRepository.save(postDailyHits);
@@ -24,6 +24,7 @@ public class PostDailyHItsService {
 				postDailyHits.incrementHitCount(1L);
 				return postDailyHits;
 			})
-			.orElseGet(() -> create(PostDailyHits.builder().post(post).day(day).build()));
+			.orElseGet(() -> create(
+				PostDailyHits.builder().post(post).day(day).build()));
 	}
 }
