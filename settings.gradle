@@ -3,4 +3,6 @@ include 'application'
 include 'submodule'
 include 'domain'
 include 'core'
+include 'submodule:redis'
+findProject(':submodule:redis')?.name = 'redis'
 

@@ -3,6 +3,7 @@ package ai.jamin.post.service;
 import static ai.jamin.exception.Code.*;
 
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -20,9 +21,10 @@ public class PostService {
 	}
 
 	public Post getById(Long id) {
-		Post post = postRepository.findById(id)
-			.orElseThrow(() -> new NoSuchElementException(NO_SUCH_ELEMENT.getMessage()));
-		post.incrementHitCount(1L);
-		return post;
+		return postRepository.findById(id).orElseThrow(() -> new NoSuchElementException(NO_SUCH_ELEMENT.getMessage()));
+	}
+
+	public Optional<Post> getOptionalById(Long id) {
+		return postRepository.findById(id);
 	}
 }

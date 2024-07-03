@@ -32,7 +32,7 @@ class PostDailyHitsServiceTest extends AcceptanceTest {
 			PostDailyHits.builder().post(게시글_생성됨).day(LocalDate.now()).build());
 
 		// when
-		PostDailyHits postDailyHits = postDailyHitsService.incrementHitCount(게시글_생성됨, LocalDate.now());
+		PostDailyHits postDailyHits = postDailyHitsService.incrementHitCount(게시글_생성됨, LocalDate.now(), 1L);
 
 		// then
 		assertThat(postDailyHits.getHitCount()).isEqualTo(2L);
@@ -44,7 +44,7 @@ class PostDailyHitsServiceTest extends AcceptanceTest {
 		Post 게시글_생성됨 = postRepository.save(게시글_생성(0L));
 
 		// when
-		PostDailyHits postDailyHits = postDailyHitsService.incrementHitCount(게시글_생성됨, LocalDate.now());
+		PostDailyHits postDailyHits = postDailyHitsService.incrementHitCount(게시글_생성됨, LocalDate.now(), 1L);
 
 		// then
 		assertThat(postDailyHits.getHitCount()).isEqualTo(1L);

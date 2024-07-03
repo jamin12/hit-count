@@ -18,10 +18,10 @@ public class PostDailyHitsService {
 		return postDailyHitsRepository.save(postDailyHits);
 	}
 
-	public PostDailyHits incrementHitCount(Post post, LocalDate day) {
+	public PostDailyHits incrementHitCount(Post post, LocalDate day, Long hitCount) {
 		return postDailyHitsRepository.findByPostIdAndDay(post.getId(), day)
 			.map(postDailyHits -> {
-				postDailyHits.incrementHitCount(1L);
+				postDailyHits.incrementHitCount(hitCount);
 				return postDailyHits;
 			})
 			.orElseGet(() -> create(
